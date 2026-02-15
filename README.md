@@ -1,3 +1,8 @@
+[![pub package](https://img.shields.io/pub/v/biometric_iot_bridge.svg)](https://pub.dev/packages/biometric_iot_bridge)
+[![likes](https://img.shields.io/pub/likes/biometric_iot_bridge)](https://pub.dev/packages/biometric_iot_bridge)
+[![popularity](https://img.shields.io/pub/popularity/biometric_iot_bridge)](https://pub.dev/packages/biometric_iot_bridge)
+[![license](https://img.shields.io/github/license/SEOSiri-Official/biometric_iot_bridge)](LICENSE)
+
 # Biometric IoT Bridge
 
 A Flutter package providing **biometric authentication**, **secure token generation**, and **MQTT-based IoT signaling**.
