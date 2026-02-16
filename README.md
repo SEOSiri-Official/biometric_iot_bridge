@@ -1,47 +1,48 @@
-<<<<<<< HEAD
-[![pub package](https://img.shields.io/pub/v/biometric_iot_bridge.svg)](https://pub.dev/packages/biometric_iot_bridge)
-[![likes](https://img.shields.io/pub/likes/biometric_iot_bridge)](https://pub.dev/packages/biometric_iot_bridge)
-[![popularity](https://img.shields.io/pub/popularity/biometric_iot_bridge)](https://pub.dev/packages/biometric_iot_bridge)
-[![license](https://img.shields.io/github/license/SEOSiri-Official/biometric_iot_bridge)](LICENSE)
+# biometric_iot_bridge
 
-# Biometric IoT Bridge
+Biometric authentication, secure token generation, and MQTT signaling bridge for Flutter & IoT applications.
 
-A Flutter package providing **biometric authentication**, **secure token generation**, and **MQTT-based IoT signaling**.
-
-Designed for applications that require trusted user verification before sending commands to remote devices.
+![pub version](https://img.shields.io/pub/v/biometric_iot_bridge)
+![license](https://img.shields.io/github/license/SEOSiri-Official/biometric_iot_bridge)
+![likes](https://img.shields.io/pub/likes/biometric_iot_bridge)
+![popularity](https://img.shields.io/pub/popularity/biometric_iot_bridge)
 
 ---
 
-## ✨ Features
+## ✨ What is biometric_iot_bridge?
 
-✔ Biometric authentication (fingerprint / face / device biometrics)  
-✔ Secure HMAC-SHA256 token generation  
-✔ MQTT message publishing for IoT devices  
-✔ Minimal, lightweight API  
-✔ Flutter-friendly & platform-aware  
+`biometric_iot_bridge` is a Flutter plugin that connects **device biometrics** with **secure token generation** and **IoT device signaling**.
+
+It allows Flutter apps to securely:
+
+• Verify users using fingerprint / face / device credentials  
+• Generate cryptographically secure tokens  
+• Send trusted commands to IoT devices via MQTT  
+
+This package is designed for **security-sensitive**, **device-aware**, and **remote-control** workflows.
 
 ---
 
-## 🚀 Use Cases
+## 🚀 Core Capabilities
 
-- Smart locks / IoT access control  
-- Device unlocking workflows  
-- Secure remote commands  
-- Trusted device signaling  
-- Biometric-gated actions  
+✅ Biometric authentication using native platform APIs  
+✅ Secure token generation via cryptographic hashing  
+✅ MQTT signaling for IoT / remote devices  
+✅ Lightweight and Flutter-first API  
+✅ No biometric data storage  
 
 ---
 
 ## 📦 Installation
 
-Add dependency to `pubspec.yaml`:
+Add the dependency:
 
 ```yaml
 dependencies:
-  biometric_iot_bridge: ^1.0.0
-```
+  biometric_iot_bridge: ^0.0.1
+````
 
-Then run:
+Fetch packages:
 
 ```bash
 flutter pub get
@@ -49,151 +50,165 @@ flutter pub get
 
 ---
 
-## 🔐 Basic Example
+## 🛠 Quick Start
+
+### Import
 
 ```dart
-final bridge = BiometricIotBridge();
-
-final authenticated = await bridge.verifyBiometrics();
-
-if (authenticated) {
-  final token = bridge.generateSecureToken(
-    'your_secret_key',
-    subject: 'iot/unlock',
-  );
-
-  await bridge.sendRemoteSignal('iot/unlock', token);
-}
+import 'package:biometric_iot_bridge/biometric_iot_bridge.dart';
 ```
 
 ---
 
-## 🧩 API Overview
+### Initialize Bridge
+
+```dart
+final bridge = BiometricIotBridge();
+```
+
+---
 
 ### Verify Biometrics
 
 ```dart
-Future<bool> verifyBiometrics()
-```
+final authenticated = await bridge.verifyBiometrics();
 
-Triggers device biometric authentication.
+if (!authenticated) {
+  print("Authentication failed");
+  return;
+}
+```
 
 ---
 
 ### Generate Secure Token
 
 ```dart
-String generateSecureToken(
-  String secretKey, {
-  required String subject,
-})
-```
-
-Creates an HMAC-SHA256 token:
-
-```
-HMAC(subject:timestamp).timestamp
+final token = bridge.generateSecureToken("my_secret_key");
 ```
 
 ---
 
-### Send Remote Signal (MQTT)
+### Send Signal to IoT Device
 
 ```dart
-Future<void> sendRemoteSignal(
-  String topic,
-  String token,
-)
-```
-
-Publishes the token to an MQTT broker.
-
-Default broker:
-
-```
-broker.emqx.io
+await bridge.sendRemoteSignal("iot/unlock", token);
 ```
 
 ---
 
-## ⚙️ Requirements
+## 🔐 Security Design
 
-- Flutter SDK  
-- Device biometric support  
-- Internet access (for MQTT)  
+This package follows a **non-invasive security model**:
 
----
+• Uses platform-native biometric APIs (no raw biometric access)
+• Does NOT store fingerprint / face data
+• Token generation uses cryptographic hashing
+• Designed for trust signaling, not identity management
 
-## 🔒 Security Notes
-
-- Tokens use HMAC-SHA256  
-- Never expose secret keys  
-- Always validate tokens server/device-side  
-- Biometrics verify user presence, not identity  
+⚠ Important: Developers must still validate tokens server-side or device-side.
 
 ---
 
-## 📚 Intended Architecture
+## 🧩 Example Use Cases
 
-Typical flow:
-
-```
-User → Biometric Auth → Secure Token → MQTT → IoT Device
-```
-
----
-
-## 🛠 Maintained By
-
-**SEOSiri**  
-https://seosiri.com  
-
-**Momenul Ahmad**  
-https://www.seosiri.com/p/about.html
+• Smart locks / secure access systems
+• IoT device control with biometric gating
+• Device-bound authorization flows
+• Multi-factor security architectures
+• Trusted remote commands
 
 ---
 
-## 📄 License
+## ⚙ Supported Platforms
 
-MIT License
-=======
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+| Platform | Status                              |
+| -------- | ----------------------------------- |
+| Android  | ✅ Supported                         |
+| iOS      | ✅ Supported                         |
+| Windows  | ✅ Supported (device auth dependent) |
+| macOS    | ✅ Supported                         |
+| Linux    | ⚠ Biometric API dependent           |
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages). 
+---
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages). 
--->
+## 📖 API Reference
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+### verifyBiometrics()
 
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+Triggers biometric authentication.
 
 ```dart
-const like = 'sample';
+Future<bool> verifyBiometrics()
 ```
 
-## Additional information
+Returns `true` if user verification succeeds.
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
->>>>>>> d13d6b8 (Initial commit - biometric_iot_bridge package)
+---
+
+### generateSecureToken()
+
+Generates a cryptographically secure token.
+
+```dart
+String generateSecureToken(String secret)
+```
+
+---
+
+### sendRemoteSignal()
+
+Publishes token to MQTT topic.
+
+```dart
+Future<void> sendRemoteSignal(String topic, String token)
+```
+
+---
+
+## 🏗 Design Goals
+
+`biometric_iot_bridge` prioritizes:
+
+• Predictability
+• Minimal abstraction
+• Security-aware defaults
+• Easy integration with MQTT / backend systems
+
+---
+
+## 🤝 Contributing
+
+Contributions, improvements, and suggestions are welcome.
+
+Typical workflow:
+
+1. Fork repository
+2. Create feature branch
+3. Commit changes
+4. Submit pull request
+
+---
+
+## 📜 License
+
+MIT License. See `LICENSE`.
+
+---
+
+## 🌍 Attribution & Maintenance
+
+Under development by **SEOSiri**
+Developer: **Momenul Ahmad**
+
+[https://www.seosiri.com](https://www.seosiri.com)
+
+---
+
+## ⭐ Support
+
+If this package is useful:
+
+• Star the GitHub repository
+• Share with other developers
+• Provide feedback / improvements
