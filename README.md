@@ -1,11 +1,12 @@
 # biometric_iot_bridge
 
-Biometric authentication, secure token generation, and MQTT signaling bridge for Flutter & IoT applications.
+Flutter biometric authentication and secure MQTT IoT bridge. Verify users with platform biometrics, generate cryptographic tokens, and trigger trusted device actions with hardware-level security.
 
-![pub version](https://img.shields.io/pub/v/biometric_iot_bridge)
-![license](https://img.shields.io/github/license/SEOSiri-Official/biometric_iot_bridge)
-![likes](https://img.shields.io/pub/likes/biometric_iot_bridge)
-![popularity](https://img.shields.io/pub/popularity/biometric_iot_bridge)
+![Pub Version](https://img.shields.io/pub/v/biometric_iot_bridge)
+![Flutter](https://img.shields.io/badge/platform-Flutter-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Security](https://img.shields.io/badge/focus-Security-critical)
+![IoT](https://img.shields.io/badge/domain-IoT-orange)
 
 ---
 
