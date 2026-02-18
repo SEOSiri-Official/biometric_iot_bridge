@@ -1,3 +1,7 @@
+## 0.1.1
+- Update README with correct version, platform setup, full example
+- Add repository, homepage, topics to pubspec
+
 ## 0.1.0
 
 - Initial public release
