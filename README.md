@@ -42,7 +42,7 @@ This package is designed for **security-sensitive**, **device-aware**, and **rem
 Add to your `pubspec.yaml`:
 ```yaml
 dependencies:
-  biometric_iot_bridge: ^0.1.0
+  biometric_iot_bridge: ^0.1.2
 ```
 
 Then fetch packages:

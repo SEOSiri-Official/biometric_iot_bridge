@@ -1,4 +1,9 @@
+## 0.1.2
+
+- Fix CHANGELOG formatting for pub.dev analyzer
+
 ## 0.1.1
+
 - Update README with correct version, platform setup, full example
 - Add repository, homepage, topics to pubspec
 
