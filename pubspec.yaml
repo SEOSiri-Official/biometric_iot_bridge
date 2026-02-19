@@ -1,7 +1,7 @@
 name: biometric_iot_bridge
 description: Securely authenticate users with biometrics and trigger remote IoT actions via MQTT. Designed for Flutter apps requiring hardware-level trust and device control.
 
-version: 0.1.2
+version: 0.1.4
 
 homepage: https://github.com/SEOSiri-Official/biometric_iot_bridge
 repository: https://github.com/SEOSiri-Official/biometric_iot_bridge
@@ -13,9 +13,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  local_auth: ^2.0.0
+
+  local_auth: ^3.0.0
   crypto: ^3.0.0
   mqtt_client: ^10.0.0
+
 
 dev_dependencies:
   flutter_test:

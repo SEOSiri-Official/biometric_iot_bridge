@@ -1,0 +1,7 @@
+﻿{
+  "bib-dep": {
+    "prefix": "bib-dep",
+    "body": ["biometric_iot_bridge: ^0.1.1"],
+    "description": "Add biometric_iot_bridge to pubspec.yaml"
+  }
+}

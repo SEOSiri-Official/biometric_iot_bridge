@@ -1,0 +1,76 @@
+﻿{
+  "bib-import": {
+    "prefix": "bib-import",
+    "body": ["import 'package:biometric_iot_bridge/biometric_iot_bridge.dart';"],
+    "description": "Import biometric_iot_bridge"
+  },
+  "bib-init": {
+    "prefix": "bib-init",
+    "body": ["final bridge = BiometricIotBridge();"],
+    "description": "Initialize bridge"
+  },
+  "bib-verify": {
+    "prefix": "bib-verify",
+    "body": ["final authenticated = await bridge.verifyBiometrics();","if (!authenticated) { ${1:return;} }"],
+    "description": "Verify biometrics"
+  },
+  "bib-token": {
+    "prefix": "bib-token",
+    "body": ["final token = bridge.generateSecureToken('${1:secret_key}');"],
+    "description": "Generate secure token"
+  },
+  "bib-signal": {
+    "prefix": "bib-signal",
+    "body": ["await bridge.sendRemoteSignal('${1:iot/device/action}', ${2:token});"],
+    "description": "Send MQTT signal"
+  },
+  "bib-flow": {
+    "prefix": "bib-flow",
+    "body": [
+      "// biometric_iot_bridge — https://www.seosiri.com/2026/02/biometric-iot-bridge.html",
+      "final bridge = BiometricIotBridge();",
+      "final authenticated = await bridge.verifyBiometrics();",
+      "if (!authenticated) { ${1:return;} }",
+      "final token = bridge.generateSecureToken('${2:secret_key}');",
+      "await bridge.sendRemoteSignal('${3:iot/device/action}', token);"
+    ],
+    "description": "Full auth flow"
+  },
+  "bib-widget": {
+    "prefix": "bib-widget",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "import 'package:biometric_iot_bridge/biometric_iot_bridge.dart';",
+      "",
+      "class ${1:SecureIotPage} extends StatefulWidget {",
+      "  @override",
+      "  _${1:SecureIotPage}State createState() => _${1:SecureIotPage}State();",
+      "}",
+      "",
+      "class _${1:SecureIotPage}State extends State<${1:SecureIotPage}> {",
+      "  final bridge = BiometricIotBridge();",
+      "  String _status = 'Ready';",
+      "",
+      "  Future<void> _authenticate() async {",
+      "    setState(() => _status = 'Verifying...');",
+      "    final ok = await bridge.verifyBiometrics();",
+      "    if (!ok) { setState(() => _status = 'Failed.'); return; }",
+      "    final token = bridge.generateSecureToken('${2:secret_key}');",
+      "    await bridge.sendRemoteSignal('${3:iot/device/action}', token);",
+      "    setState(() => _status = '✅ Done!');",
+      "  }",
+      "",
+      "  @override",
+      "  Widget build(BuildContext context) => Scaffold(",
+      "    appBar: AppBar(title: Text('${4:IoT Control}')),",
+      "    body: Center(child: ElevatedButton.icon(",
+      "      icon: Icon(Icons.fingerprint),",
+      "      label: Text('${5:Authenticate}'),",
+      "      onPressed: _authenticate,",
+      "    )),",
+      "  );",
+      "}"
+    ],
+    "description": "Full biometric IoT widget"
+  }
+}
