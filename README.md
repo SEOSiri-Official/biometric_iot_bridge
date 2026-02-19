@@ -42,7 +42,7 @@ This package is designed for **security-sensitive**, **device-aware**, and **rem
 Add to your `pubspec.yaml`:
 ```yaml
 dependencies:
-  biometric_iot_bridge: ^0.1.2
+  biometric_iot_bridge: ^0.1.4
 ```
 
 Then fetch packages:
@@ -243,7 +243,7 @@ Future<void> sendRemoteSignal(String topic, String token)
 
 | Package | Version | Purpose |
 |---|---|---|
-| `local_auth` | `^2.0.0` | Platform biometric authentication |
+| `local_auth` | `^3.0.0` | Platform biometric authentication |
 | `mqtt_client` | `^10.0.0` | MQTT messaging |
 | `crypto` | `^3.0.0` | Secure token generation |
 
