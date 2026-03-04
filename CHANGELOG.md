@@ -1,3 +1,10 @@
+## 0.1.5
+
+- Fixed token generation test
+- Improved CI pipeline configuration
+- Updated package dependencies
+- Minor stability improvements
+
 ## 0.1.4
 - Fixed constructor order lint (sort_constructors_first)
 - Minor internal cleanup
