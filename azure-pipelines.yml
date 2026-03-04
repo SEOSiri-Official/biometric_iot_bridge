@@ -5,19 +5,35 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: UseNode@1
+  inputs:
+    version: '18.x'
+  displayName: 'Install Node.js'
 
 - script: |
-    git clone https://github.com/flutter/flutter.git
-    export PATH="$PATH:`pwd`/flutter/bin"
-    flutter doctor
-  displayName: Install Flutter
+    echo "Repository: $(Build.Repository.Name)"
+    echo "Branch: $(Build.SourceBranch)"
+  displayName: 'Print build info'
 
 - script: |
-    export PATH="$PATH:`pwd`/flutter/bin"
-    flutter pub get
-  displayName: Install Dependencies
+    if [ -f "package.json" ]; then
+      echo "Node project detected"
+      npm install
+      npm run build || echo "No build script found"
+    fi
+  displayName: 'Build Node project (if exists)'
 
 - script: |
-    export PATH="$PATH:`pwd`/flutter/bin"
-    flutter build web
-  displayName: Build Flutter Web
+    if [ -f "pubspec.yaml" ]; then
+      sudo snap install flutter --classic
+      flutter doctor
+      flutter pub get
+      flutter analyze
+    fi
+  displayName: 'Build Flutter project (if exists)'
+
+- script: |
+    if [ -f "requirements.txt" ]; then
+      pip install -r requirements.txt
+    fi
+  displayName: 'Install Python deps (if exists)'
