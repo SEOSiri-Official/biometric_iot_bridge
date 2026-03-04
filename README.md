@@ -9,8 +9,6 @@ Flutter biometric authentication and secure MQTT IoT bridge. Verify users with p
 [![Platform](https://img.shields.io/badge/platform-Flutter-blue)](https://flutter.dev)
 [![Security Focus](https://img.shields.io/badge/focus-Security-critical)](https://pub.dev/packages/biometric_iot_bridge)
 [![Build Status](https://dev.azure.com/seosiri/SEOSiri/_apis/build/status%2FSEOSiri-Official.biometric_iot_bridge?branchName=main)](https://dev.azure.com/seosiri/SEOSiri/_build/latest?definitionId=1&branchName=main)
-
-![License](https://img.shields.io/github/license/SEOSiri-Official/biometric_iot_bridge)
 ![Stars](https://img.shields.io/github/stars/SEOSiri-Official/biometric_iot_bridge)
 ![CI](https://dev.azure.com/...)
 
