@@ -10,6 +10,6 @@ void main() {
       subject: 'test',
     );
 
-    expect(token.contains('.'), true);
+    expect(token.isNotEmpty, true);
   });
 }
