@@ -1,0 +1,23 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- script: |
+    git clone https://github.com/flutter/flutter.git
+    export PATH="$PATH:`pwd`/flutter/bin"
+    flutter doctor
+  displayName: Install Flutter
+
+- script: |
+    export PATH="$PATH:`pwd`/flutter/bin"
+    flutter pub get
+  displayName: Install Dependencies
+
+- script: |
+    export PATH="$PATH:`pwd`/flutter/bin"
+    flutter build web
+  displayName: Build Flutter Web
